@@ -1,6 +1,24 @@
-# invoice-observer (bounded context)
+# invoice-observer (bounded context) and its applications
 
-The "invoice-observer" bounded context (in terms of DDD) corresponds to the invoice management monitoring subdomain, usually a part of reporting or audit system.
+The "invoice-observer" bounded context (in terms of DDD) corresponds to the invoice management monitoring subdomain,
+usually a part of reporting or audit system.
+
+The Invoice Observer application consists of two applications, residing in separate repositories:
+[Invoice Core App](../invoice-core-app/README.md) and [Invoice Monitoring CLI](../invoice-monitoring-cli/README.md),
+designed as independent microservices.
+
+## Overview
+
+### [Invoice Core](../invoice-core-app/README.md)
+
+It's an ASP.NET Core API implementing primitive invoice management with JWT-based authentication,
+a simple Razor Pages UI, SQLite persistence via Entity Framework, and publishing invoice events to RabbitMQ for monitoring.
+
+### [Invoice Monitoring](../invoice-monitoring-cli/README.md)
+
+A .NET console application that subscribes to invoice events from RabbitMQ (e.g., `invoice.added`, `invoice.updated`,
+`invoice.deleted`), consumes messages from CloudAMQP or local RabbitMQ, and pretty-prints JSON payloads
+for monitoring and auditing.
 
 ## License
 

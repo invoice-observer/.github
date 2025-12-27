@@ -1,9 +1,9 @@
-# invoice-observer (bounded context) and its applications
+# invoice-observer (bounded context) and its Invoice Observer applications
 
 The "invoice-observer" bounded context (in terms of DDD) corresponds to the invoice management monitoring subdomain,
 usually a part of reporting or audit system.
 
-The Invoice Observer application consists of two applications, residing in separate repositories:
+The Invoice Observer consists of two applications, residing in separate repositories:
 [Invoice Core App](../invoice-core-app/README.md) and [Invoice Monitoring CLI](../invoice-monitoring-cli/README.md),
 designed as independent microservices.
 

@@ -4,10 +4,10 @@ The "invoice-observer" bounded context (in terms of DDD) corresponds to the invo
 
 ## License
 
-This project is licensed under the terms of the [MIT License](LICENSE).
+This bounded context is licensed under the terms of the [MIT License](../LICENSE).
 
 ## Contact
 
 Eduard Danziger
 
-Email: [eduard.danziger@gmx.de](mailto:eduard.danziger@gmx.de)
+[eduard.danziger@gmx.de](mailto:eduard.danziger@gmx.de)

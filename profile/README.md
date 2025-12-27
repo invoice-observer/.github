@@ -16,8 +16,8 @@ a simple Razor Pages UI, SQLite persistence via Entity Framework, and publishing
 
 ### [Invoice Monitoring](https://github.com/invoice-observer/invoice-monitoring-cli/blob/main/README.md)
 
-A .NET console application that subscribes to invoice events from RabbitMQ (e.g., `invoice.added`, `invoice.updated`,
-`invoice.deleted`), consumes messages from CloudAMQP or local RabbitMQ, and pretty-prints JSON payloads
+A .NET console application that subscribes to invoice events from RabbitMQ `invoice.added`, `invoice.updated`,
+`invoice.deleted`, consumes messages from CloudAMQP or local RabbitMQ, and pretty-prints JSON payloads
 for monitoring and auditing.
 
 ## License

@@ -2,6 +2,6 @@
 
 Eduard Danziger
 
-[eduard.danziger@gmx.de](mailto:eduard.danziger@gmx.de)
-[MIT License](LICENSE)
+- [https://github.com/eduarddanziger](https://github.com/eduarddanziger)
+- [MIT License](LICENSE)
 

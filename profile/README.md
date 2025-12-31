@@ -1,6 +1,6 @@
 # invoice-observer and its applications
 
-The invoice-observer bounded context (in terms of DDD) corresponds to the Invoice Observer, an invoice management monitoring subdomain,
+The invoice-observer bounded context (in terms of DDD) corresponds to the Invoice Observer subdomain, an invoice management monitoring system,
 usually a part of reporting or audit system.
 
 The Invoice Observer contains two applications, residing in separate repositories:

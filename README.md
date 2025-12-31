@@ -2,6 +2,7 @@
 
 Eduard Danziger
 
-- [https://github.com/eduarddanziger](https://github.com/eduarddanziger)
-- [MIT License](LICENSE)
+[https://github.com/eduarddanziger](https://github.com/eduarddanziger)
+
+[MIT License](LICENSE)
 

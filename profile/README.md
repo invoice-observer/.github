@@ -28,4 +28,6 @@ The invoice-observer is licensed under the terms of the [MIT License](../LICENSE
 
 Eduard Danziger
 
+[https://github.com/eduarddanziger](https://github.com/eduarddanziger)
+
 [eduard.danziger@gmx.de](mailto:eduard.danziger@gmx.de)

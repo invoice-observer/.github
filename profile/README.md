@@ -1,13 +1,13 @@
 # invoice-observer and its applications
 
-The invoice-observer bounded context (in terms of DDD) corresponds to the Invoice Observer subdomain. It implements an invoice management monitoring subsystem,
+The invoice-observer bounded context (in terms of DDD) corresponds to the ***Invoice Observer*** subdomain. It implements an invoice management monitoring subsystem,
 usually a part of reporting or audit system.
 
-The Invoice Observer applications reside in separate repositories
+The ***Invoice Observer*** applications reside in separate repositories
 [Invoice Core App](https://github.com/invoice-observer/invoice-core-app.git) and [Invoice Monitoring CLI](https://github.com/invoice-observer/invoice-monitoring-cli.git).
 They are designed as independent microservices.
 
-## Overview
+## Applications
 
 ### [Invoice Core](https://github.com/invoice-observer/invoice-core-app/blob/main/README.md)
 

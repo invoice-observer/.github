@@ -1,24 +1,46 @@
-# invoice-observer and its applications
+<h1><img src="https://raw.githubusercontent.com/invoice-observer/.github/main/pictures/invoice-observer-v3.png" alt="Invoice Observer logo" width="28" height="28" align="center"> &nbsp;invoice-observer and its applications</h1>
 
-The invoice-observer bounded context (in terms of DDD) corresponds to the ***Invoice Observer*** subdomain. It implements an invoice management monitoring subsystem,
-usually a part of reporting or audit system.
+A simple invoice management and monitoring system. An ASP.NET Core application manages invoices
+and publishes events to RabbitMQ; a separate .NET console application consumes and displays them.
 
-The ***Invoice Observer*** applications reside in separate repositories
-[Invoice Core App](https://github.com/invoice-observer/invoice-core-app.git) and [Invoice Monitoring CLI](https://github.com/invoice-observer/invoice-monitoring-cli.git).
-They are designed as independent microservices.
+It can serve as a monitoring component within a larger reporting or audit system.
 
-## Applications
+## Key Components
 
-### [Invoice Core](https://github.com/invoice-observer/invoice-core-app/blob/main/README.md)
+| Repository | Tech | Description |
+|-----------|------|-------------|
+| [invoice-core-app](https://github.com/invoice-observer/invoice-core-app) | C# / ASP.NET Core / Razor Pages / EF Core | Invoice management API with JWT authentication, a Razor Pages UI with cookie authentication, SQLite persistence and RabbitMQ event publishing |
+| [invoice-monitoring-cli](https://github.com/invoice-observer/invoice-monitoring-cli) | C# / .NET / RabbitMQ | Console application consuming invoice events from CloudAMQP or local RabbitMQ and pretty-printing JSON payloads for monitoring and auditing |
 
-It's an ASP.NET Core API implementing primitive invoice management with JWT-based authentication,
-a simple Razor Pages UI, SQLite persistence via Entity Framework, and publishing invoice events to RabbitMQ for monitoring.
+## Architecture Overview
 
-### [Invoice Monitoring](https://github.com/invoice-observer/invoice-monitoring-cli/blob/main/README.md)
+```mermaid
+flowchart TD
 
-A .NET console application that subscribes to invoice events from RabbitMQ `invoice.added`, `invoice.updated`,
-`invoice.deleted`, consumes messages from CloudAMQP or local RabbitMQ, and pretty-prints JSON payloads
-for monitoring and auditing.
+classDef dottedBox fill:transparent,fill-opacity:0.55,stroke-dasharray:20 5,stroke-width:2px;
+
+apiClient["API Client"]
+browser["Web Browser"]
+
+subgraph invoiceCoreApp["invoice-core-app"]
+    api["REST API"]
+    razorUi["Razor Pages UI"]
+    invoiceCore["Invoice Service"]
+    api --> invoiceCore
+    razorUi --> invoiceCore
+end
+class invoiceCoreApp dottedBox
+
+sqlite[("SQLite")]
+rabbitMq[("RabbitMQ")]
+monitoring["invoice-monitoring-cli<br>(.NET Console)"]
+
+apiClient -->|HTTP / JWT| api
+browser -->|HTTP / Cookie Auth| razorUi
+invoiceCore -->|Persistence via EF Core| sqlite
+invoiceCore -->|Publish invoice events| rabbitMq
+rabbitMq -->|Consume and display JSON| monitoring
+```
 
 ## License
 

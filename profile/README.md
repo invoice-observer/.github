@@ -2,6 +2,7 @@
 
 A simple invoice management and monitoring system. An ASP.NET Core application manages invoices
 and publishes events to RabbitMQ; a separate .NET console application consumes and displays them.
+The two applications are developed as independent microservices.
 
 It can serve as a monitoring component within a larger reporting or audit system.
 
@@ -44,7 +45,7 @@ rabbitMq -->|Consume and display JSON| monitoring
 
 ## License
 
-The invoice-observer is licensed under the terms of the [MIT License](../LICENSE).
+The invoice-observer is licensed under the terms of the [MIT License](https://github.com/invoice-observer/.github/blob/main/LICENSE).
 
 ## Contact
 

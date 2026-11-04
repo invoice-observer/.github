@@ -10,7 +10,7 @@ It can serve as a monitoring component within a larger reporting or audit system
 
 | Repository | Tech | Description |
 |-----------|------|-------------|
-| [invoice-core-app](https://github.com/invoice-observer/invoice-core-app) | C# / ASP.NET Core / Razor Pages / EF Core | Invoice management API with JWT authentication, a Razor Pages UI with cookie authentication, SQLite persistence and RabbitMQ event publishing |
+| [invoice-core-app](https://github.com/invoice-observer/invoice-core-app) | C# / ASP.NET Core / Razor Pages / EF Core | Invoice management API with JWT authentication, a Razor Pages UI with cookie authentication, SQL Server persistence and RabbitMQ event publishing |
 | [invoice-monitoring-cli](https://github.com/invoice-observer/invoice-monitoring-cli) | C# / .NET / RabbitMQ | Console application consuming invoice events from CloudAMQP or local RabbitMQ and pretty-printing JSON payloads for monitoring and auditing |
 
 ## Architecture Overview
@@ -32,13 +32,13 @@ subgraph invoiceCoreApp["invoice-core-app"]
 end
 class invoiceCoreApp dottedBox
 
-sqlite[("SQLite")]
+sqlServer[("SQL Server")]
 rabbitMq[("RabbitMQ")]
 monitoring["invoice-monitoring-cli<br>(.NET Console)"]
 
 apiClient -->|HTTP / JWT| api
 browser -->|HTTP / Cookie Auth| razorUi
-invoiceCore -->|Persistence via EF Core| sqlite
+invoiceCore -->|Persistence via EF Core| sqlServer
 invoiceCore -->|Publish invoice events| rabbitMq
 rabbitMq -->|Consume and display JSON| monitoring
 ```
